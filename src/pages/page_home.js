@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, FlatList, Button, Alert} from 'react-native';
+import {StyleSheet, View, FlatList, Button, Alert, StatusBar} from 'react-native';
 import {FloatingAction} from 'react-native-floating-action';
 import { FAB } from 'react-native-paper';
 import {Header} from '../components/header';
@@ -72,8 +72,10 @@ export function PageHome({navigation}) {
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#f4511e" barStyle={"ligh-content"} />
       <View style={styles.list}>
         <FlatList
+          keyExtractor={(item) => item._id}
           data={todos}
           renderItem={({item}) => (
             <ItemTodo todo={item} pressHandler={createTwoButtonAlert} />

@@ -4,7 +4,8 @@ import {
     Button, 
     StyleSheet,
     ScrollView,
-    TextInput
+    TextInput,
+    StatusBar
 } from 'react-native';
 
 export function PageEdit({ route, navigation }){
@@ -44,7 +45,9 @@ export function PageEdit({ route, navigation }){
 
 
     return(
-        <ScrollView style={styles.root}>
+        <View>
+            <StatusBar backgroundColor="#f4511e" barStyle={"ligh-content"} />
+            <ScrollView style={styles.root}>
             <TextInput 
                 value={currentTodo.title}
                 style={styles.input} 
@@ -61,6 +64,8 @@ export function PageEdit({ route, navigation }){
                 color="#ff5500"
             />
         </ScrollView>
+        </View>
+
     )
 }
 
