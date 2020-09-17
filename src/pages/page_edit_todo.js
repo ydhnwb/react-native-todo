@@ -22,7 +22,9 @@ export function PageEdit({ route, navigation }){
     const markAsCompleted = async (shouldMarkAsCompleted) => {
         const obj = currentTodo
         obj.title = currentTodo.title
-        obj.isComplete = shouldMarkAsCompleted
+        if(shouldMarkAsCompleted != null){
+            obj.isComplete = shouldMarkAsCompleted
+        }
         console.log(JSON.stringify(obj))
         const response = await fetch(`https://btm-rn.herokuapp.com/api/v1/todo/${currentTodo._id}`, {
             method: "PUT",
@@ -59,7 +61,7 @@ export function PageEdit({ route, navigation }){
                 color="#008040"
             />
             <Button
-                onPress={() => markAsCompleted(false)}
+                onPress={() => markAsCompleted(null)}
                 title="Update"
                 color="#ff5500"
             />
